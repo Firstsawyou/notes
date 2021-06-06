@@ -90,45 +90,49 @@ kubectl get pod api7-etcd-0 -o yaml
 kubectl describe pod apisix-695dddb5f8-n6qh6
 kubectl describe svc apisix-gateway
 
-4、删除 namespace 下面所有的资源（慎重）
+4、创建 namespace
+
+kubectl create namespace {namespace}
+
+5、删除 namespace 下面所有的资源（慎重）
 
 kubectl delete all --all -n {namespace}
 
-5、删除指定的 namespace
+6、删除指定的 namespace
 
 kubectl delete ns(namespace)  {namespaceName}
 
-6、本地端口映射到应用服务
+7、本地端口映射到应用服务
 
 kubectl port-forward apisix-64476dd584-xkbdp 9080:9080 9180:9180
 
 kubectl port-forward svc/apisix-gateway 9080:80
 
-7、进入 pod 副本
+8、进入 pod 副本
 
 kubectl exec -ti <your-pod-name>  -n <your-namespace>  -- /bin/sh
 
-8、kind 删除集群
+9、kind 删除集群
 
 kind delete cluster --name apisix
 
-9、进入 docker 容器
+10、进入 docker 容器
 
 docker exec -it 97a0390f1b32 bash
 
 docker exec -ti  <your-container-name>   /bin/sh
 
-10、k8s 节点查看
+11、k8s 节点查看
 
 vi /etc/containerd/config.toml
 
 cat /etc/containerd/config.toml
 
-11、Linux 中命令起别名
+12、Linux 中命令起别名
 
 alias k=kubectl
 
-12、 watch 一个命令
+13、 watch 一个命令
 
 watch -n 0.5 kubectl get pods
 
