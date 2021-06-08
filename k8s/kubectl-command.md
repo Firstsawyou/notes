@@ -137,3 +137,9 @@ alias k=kubectl
 watch -n 0.5 kubectl get pods
 
 更多使用信息可以通过： `watch` 查看
+
+14、查看 pod 的 yaml 配置
+
+```shell
+kubectl get pods podName -o yaml -n {namespace}
+```
